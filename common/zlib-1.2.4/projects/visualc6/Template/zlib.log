@@ -1,0 +1,31 @@
+﻿Build started 3/28/2010 10:47:15 PM.
+     1>Project "C:\Users\kuang\workspace\splane\common\zlib-1.2.4\projects\visualc6\zlib.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Template\zlib.lastbuildstate".
+       InitializeBuildStatus:
+         Touching "Template\zlib.unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W1 /WX- /O2 /Oy- /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Template\\" /Fd"Template\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\adler32.c ..\..\compress.c ..\..\crc32.c ..\..\deflate.c ..\..\gzclose.c ..\..\gzlib.c ..\..\gzread.c ..\..\gzwrite.c ..\..\infback.c ..\..\inffast.c ..\..\inflate.c ..\..\inftrees.c ..\..\trees.c ..\..\uncompr.c ..\..\zutil.c ..\..\contrib\masmx86\gvmat32c.c
+         adler32.c
+         compress.c
+         crc32.c
+         deflate.c
+         gzclose.c
+         gzlib.c
+         gzread.c
+         gzwrite.c
+         infback.c
+         inffast.c
+         inflate.c
+         inftrees.c
+         trees.c
+         uncompr.c
+         zutil.c
+         gvmat32c.c
+     1>c1 : fatal error C1083: Cannot open source file: '..\..\contrib\masmx86\gvmat32c.c': No such file or directory
+         Generating Code...
+     1>Done Building Project "C:\Users\kuang\workspace\splane\common\zlib-1.2.4\projects\visualc6\zlib.vcxproj" (rebuild target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.78

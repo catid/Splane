@@ -1,0 +1,23 @@
+﻿Build started 3/28/2010 10:27:52 PM.
+     1>Project "C:\Users\kuang\workspace\splane\common\zlib-1.2.4\projects\visualc6\zlib.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "LIB Debug\zlib.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       ResourceCompile:
+         All outputs are up-to-date.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(1150,5): warning MSB8012: TargetPath(C:\Users\kuang\workspace\splane\LIB Debug\zlib.lib) does not match the Library's OutputFile property value (C:\Users\kuang\workspace\splane\common\zlib-1.2.4\projects\visualc6\Win32_LIB_Debug\zlibd.lib). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(1152,5): warning MSB8012: TargetName(zlib) does not match the Library's OutputFile property value (zlibd). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile).
+       Lib:
+         All outputs are up-to-date.
+         zlib.vcxproj -> C:\Users\kuang\workspace\splane\LIB Debug\zlib.lib
+       BscMake:
+         All outputs are up-to-date.
+       FinalizeBuildStatus:
+         Deleting file "LIB Debug\zlib.unsuccessfulbuild".
+         Touching "LIB Debug\zlib.lastbuildstate".
+     1>Done Building Project "C:\Users\kuang\workspace\splane\common\zlib-1.2.4\projects\visualc6\zlib.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.04

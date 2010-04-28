@@ -1,0 +1,21 @@
+﻿Build started 3/28/2010 11:34:57 PM.
+     1>Project "C:\Users\kuang\workspace\splane\common\zlib-1.2.4\projects\visualc6\zlib.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "x64\LIB Debug\zlib.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       ResourceCompile:
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         zlib.vcxproj -> C:\Users\kuang\workspace\splane\x64\LIB Debug\zlib.lib
+       BscMake:
+         All outputs are up-to-date.
+       FinalizeBuildStatus:
+         Deleting file "x64\LIB Debug\zlib.unsuccessfulbuild".
+         Touching "x64\LIB Debug\zlib.lastbuildstate".
+     1>Done Building Project "C:\Users\kuang\workspace\splane\common\zlib-1.2.4\projects\visualc6\zlib.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.04
