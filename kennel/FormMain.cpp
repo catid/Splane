@@ -26,6 +26,8 @@
 	POSSIBILITY OF SUCH DAMAGE.
 */
 
+#include <Qt/QtGui>
+
 #include "FormMain.moc"
 #include <iostream>
 using namespace cat;
@@ -36,4 +38,39 @@ FormMain::FormMain()
 	setupUi(this);
 
 	_qout.setLogWindow(textEdit);
+}
+
+void KennelFileSystem::dropEvent(QDropEvent *e)
+{
+	const QMimeData *mimeData = e->mimeData();
+
+	if (mimeData->hasImage())
+	{
+
+	}
+
+	e->acceptProposedAction();
+}
+
+void KennelFileSystem::dragEnterEvent(QDragEnterEvent *e)
+{
+	setBackgroundRole(QPalette::Highlight);
+
+	e->acceptProposedAction();
+	emit changed(e->mimeData());
+}
+
+void KennelFileSystem::dragMoveEvent(QDragMoveEvent *e)
+{
+	e->acceptProposedAction();
+}
+
+void KennelFileSystem::dragLeaveEvent(QDragLeaveEvent *e)
+{
+	e->accept();
+}
+
+void KennelFileSystem::changed(const QMimeData *mimeData)
+{
+
 }

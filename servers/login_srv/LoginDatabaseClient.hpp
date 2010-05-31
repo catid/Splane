@@ -87,7 +87,7 @@ public:
 
 protected:
 	void OnClose();
-	void OnConnectFail();
+	void OnConnectFail(sphynx::HandshakeError err);
 	void OnConnect(ThreadPoolLocalStorage *tls);
 	void OnDisconnect();
 	void OnTimestampDeltaUpdate(u32 rtt, s32 delta);

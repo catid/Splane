@@ -1,14 +1,14 @@
 /********************************************************************************
-** Form generated from reading UI file 'mainGN5508.ui'
+** Form generated from reading UI file 'mainFW3892.ui'
 **
-** Created: Sat Apr 17 08:22:50 2010
+** Created: Mon May 3 21:06:51 2010
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef MAINGN5508_H
-#define MAINGN5508_H
+#ifndef MAINFW3892_H
+#define MAINFW3892_H
 
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
@@ -30,6 +30,25 @@
 
 QT_BEGIN_NAMESPACE
 
+class KennelFileSystem : public QDockWidget
+{
+protected:
+	void dropEvent(QDropEvent *);
+	void dragEnterEvent(QDragEnterEvent *);
+	void dragMoveEvent(QDragMoveEvent *);
+	void dragLeaveEvent(QDragLeaveEvent *);
+
+signals:
+	void changed(const QMimeData *mimeData = 0);
+
+public:
+	KennelFileSystem(QMainWindow *MainWindow)
+		: QDockWidget(MainWindow)
+	{
+
+	}
+};
+
 class Ui_MainWindow
 {
 public:
@@ -44,7 +63,7 @@ public:
     QGridLayout *gridLayout;
     QMdiArea *mdiArea;
     QStatusBar *statusbar;
-    QDockWidget *dockWidget;
+    KennelFileSystem *dockWidget;
     QWidget *dockWidgetContents;
     QGridLayout *gridLayout_2;
     QTreeWidget *treeWidget;
@@ -61,7 +80,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1180, 617);
+        MainWindow->resize(675, 624);
         MainWindow->setAcceptDrops(true);
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/icons/kennel.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -110,7 +129,7 @@ public:
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
-        dockWidget = new QDockWidget(MainWindow);
+        dockWidget = new KennelFileSystem(MainWindow);
         dockWidget->setObjectName(QString::fromUtf8("dockWidget"));
         dockWidget->setAcceptDrops(true);
         dockWidget->setWindowIcon(icon);
@@ -124,6 +143,7 @@ public:
         __qtreewidgetitem->setText(0, QString::fromUtf8("1"));
         treeWidget->setHeaderItem(__qtreewidgetitem);
         treeWidget->setObjectName(QString::fromUtf8("treeWidget"));
+        treeWidget->setAcceptDrops(true);
         treeWidget->setDragEnabled(true);
         treeWidget->setDragDropOverwriteMode(true);
         treeWidget->setDragDropMode(QAbstractItemView::DragDrop);
@@ -141,10 +161,11 @@ public:
         MainWindow->addDockWidget(static_cast<Qt::DockWidgetArea>(1), dockWidget);
         toolBar = new QToolBar(MainWindow);
         toolBar->setObjectName(QString::fromUtf8("toolBar"));
+        toolBar->setAcceptDrops(true);
         MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1180, 21));
+        menuBar->setGeometry(QRect(0, 0, 675, 21));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         menuResources = new QMenu(menuBar);
@@ -152,12 +173,14 @@ public:
         MainWindow->setMenuBar(menuBar);
         dockWidget_2 = new QDockWidget(MainWindow);
         dockWidget_2->setObjectName(QString::fromUtf8("dockWidget_2"));
+        dockWidget_2->setAcceptDrops(false);
         dockWidgetContents_2 = new QWidget();
         dockWidgetContents_2->setObjectName(QString::fromUtf8("dockWidgetContents_2"));
         verticalLayout = new QVBoxLayout(dockWidgetContents_2);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         textEdit = new QTextEdit(dockWidgetContents_2);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
+        textEdit->setAcceptDrops(false);
         textEdit->setReadOnly(true);
 
         verticalLayout->addWidget(textEdit);
@@ -226,4 +249,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // MAINGN5508_H
+#endif // MAINFW3892_H

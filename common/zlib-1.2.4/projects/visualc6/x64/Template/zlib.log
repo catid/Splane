@@ -1,5 +1,5 @@
-﻿Build started 3/28/2010 11:29:47 PM.
-     1>Project "C:\Users\kuang\workspace\splane\common\zlib-1.2.4\projects\visualc6\zlib.vcxproj" on node 4 (rebuild target(s)).
+﻿Build started 4/27/2010 8:26:35 PM.
+     1>Project "C:\Users\kuang\workspace\Splane\common\zlib-1.2.4\projects\visualc6\zlib.vcxproj" on node 3 (rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "x64\Template\zlib.lastbuildstate".
        InitializeBuildStatus:
@@ -24,7 +24,7 @@
        ResourceCompile:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /l"0x0409" /nologo /fo"x64\Template\zlib1.res" ..\..\win32\zlib1.rc 
        Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\Lib.exe /OUT:"C:\Users\kuang\workspace\splane\x64\Template\zlib.lib" /NOLOGO /MACHINE:X64 x64\Template\zlib1.res
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\Lib.exe /OUT:"C:\Users\kuang\workspace\Splane\x64\Template\zlib.lib" /NOLOGO /MACHINE:X64 x64\Template\zlib1.res
          x64\Template\adler32.obj
          x64\Template\compress.obj
          x64\Template\crc32.obj
@@ -41,12 +41,12 @@
          x64\Template\uncompr.obj
          x64\Template\zutil.obj
          zutil.obj : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
-         zlib.vcxproj -> C:\Users\kuang\workspace\splane\x64\Template\zlib.lib
+         zlib.vcxproj -> C:\Users\kuang\workspace\Splane\x64\Template\zlib.lib
        FinalizeBuildStatus:
          Deleting file "x64\Template\zlib.unsuccessfulbuild".
          Touching "x64\Template\zlib.lastbuildstate".
-     1>Done Building Project "C:\Users\kuang\workspace\splane\common\zlib-1.2.4\projects\visualc6\zlib.vcxproj" (rebuild target(s)).
+     1>Done Building Project "C:\Users\kuang\workspace\Splane\common\zlib-1.2.4\projects\visualc6\zlib.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.71
+Time Elapsed 00:00:00.90

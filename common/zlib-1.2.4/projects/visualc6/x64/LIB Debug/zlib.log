@@ -1,21 +1,52 @@
-﻿Build started 3/28/2010 11:34:57 PM.
-     1>Project "C:\Users\kuang\workspace\splane\common\zlib-1.2.4\projects\visualc6\zlib.vcxproj" on node 2 (build target(s)).
+﻿Build started 5/28/2010 10:15:00 PM.
+     1>Project "C:\Users\kuang\workspace\Splane\common\zlib-1.2.4\projects\visualc6\zlib.vcxproj" on node 3 (rebuild target(s)).
      1>InitializeBuildStatus:
          Creating "x64\LIB Debug\zlib.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /Od /D WIN32 /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _DEBUG /D _VC80_UPGRADE=0x0600 /Gm- /EHsc /RTC1 /MDd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Win32_LIB_Debug\\" /Fd".\Win32_LIB_Debug\vc100.pdb" /FR"x64\LIB Debug\\" /Gd /TC /errorReport:prompt ..\..\adler32.c ..\..\compress.c ..\..\crc32.c ..\..\deflate.c ..\..\gzclose.c ..\..\gzlib.c ..\..\gzread.c ..\..\gzwrite.c ..\..\infback.c ..\..\inffast.c ..\..\inflate.c ..\..\inftrees.c ..\..\trees.c ..\..\uncompr.c ..\..\zutil.c
+         adler32.c
+         compress.c
+         crc32.c
+         deflate.c
+         gzclose.c
+         gzlib.c
+         gzread.c
+         gzwrite.c
+         infback.c
+         inffast.c
+         inflate.c
+         inftrees.c
+         trees.c
+         uncompr.c
+         zutil.c
+         Generating Code...
        ResourceCompile:
-         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _DEBUG /D _VC80_UPGRADE=0x0600 /l"0x0409" /I"\Users\kuang\workspace\splane\common\zlib-1.2.4\win32" /nologo /fo"x64\LIB Debug\zlib1.res" ..\..\win32\zlib1.rc 
        Lib:
-         All outputs are up-to-date.
-         zlib.vcxproj -> C:\Users\kuang\workspace\splane\x64\LIB Debug\zlib.lib
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\Lib.exe /OUT:"C:\Users\kuang\workspace\Splane\x64\LIB Debug\zlib.lib" /NOLOGO /MACHINE:X64 "x64\LIB Debug\zlib1.res"
+         .\Win32_LIB_Debug\adler32.obj
+         .\Win32_LIB_Debug\compress.obj
+         .\Win32_LIB_Debug\crc32.obj
+         .\Win32_LIB_Debug\deflate.obj
+         .\Win32_LIB_Debug\gzclose.obj
+         .\Win32_LIB_Debug\gzlib.obj
+         .\Win32_LIB_Debug\gzread.obj
+         .\Win32_LIB_Debug\gzwrite.obj
+         .\Win32_LIB_Debug\infback.obj
+         .\Win32_LIB_Debug\inffast.obj
+         .\Win32_LIB_Debug\inflate.obj
+         .\Win32_LIB_Debug\inftrees.obj
+         .\Win32_LIB_Debug\trees.obj
+         .\Win32_LIB_Debug\uncompr.obj
+         .\Win32_LIB_Debug\zutil.obj
+         zlib.vcxproj -> C:\Users\kuang\workspace\Splane\x64\LIB Debug\zlib.lib
        BscMake:
-         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\bscmake.exe /nologo /o".\Win32_LIB_Debug\zlib.bsc" "x64\LIB Debug\adler32.sbr" "x64\LIB Debug\compress.sbr" "x64\LIB Debug\crc32.sbr" "x64\LIB Debug\deflate.sbr" "x64\LIB Debug\gzclose.sbr" "x64\LIB Debug\gzlib.sbr" "x64\LIB Debug\gzread.sbr" "x64\LIB Debug\gzwrite.sbr" "x64\LIB Debug\infback.sbr" "x64\LIB Debug\inffast.sbr" "x64\LIB Debug\inflate.sbr" "x64\LIB Debug\inftrees.sbr" "x64\LIB Debug\trees.sbr" "x64\LIB Debug\uncompr.sbr" "x64\LIB Debug\zutil.sbr"
        FinalizeBuildStatus:
          Deleting file "x64\LIB Debug\zlib.unsuccessfulbuild".
          Touching "x64\LIB Debug\zlib.lastbuildstate".
-     1>Done Building Project "C:\Users\kuang\workspace\splane\common\zlib-1.2.4\projects\visualc6\zlib.vcxproj" (build target(s)).
+     1>Done Building Project "C:\Users\kuang\workspace\Splane\common\zlib-1.2.4\projects\visualc6\zlib.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.04
+Time Elapsed 00:00:01.40

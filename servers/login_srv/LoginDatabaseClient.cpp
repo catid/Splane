@@ -207,9 +207,9 @@ void LoginDatabaseClient::OnClose()
 	WARN("DatabaseClient") << "-- SOCKET CLOSED";
 }
 
-void LoginDatabaseClient::OnConnectFail()
+void LoginDatabaseClient::OnConnectFail(sphynx::HandshakeError err)
 {
-	WARN("DatabaseClient") << "-- CONNECT FAIL";
+	WARN("DatabaseClient") << "-- CONNECT FAIL: " << GetHandshakeErrorString(err);
 }
 
 void LoginDatabaseClient::OnConnect(ThreadPoolLocalStorage *tls)

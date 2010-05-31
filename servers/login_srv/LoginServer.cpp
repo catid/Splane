@@ -473,6 +473,8 @@ void LoginServer::Continue()
 
 sphynx::Connexion *LoginServer::NewConnexion()
 {
+
+	WARN("TEST") << sizeof(LoginConnexion);
 	return new LoginConnexion(this);
 }
 

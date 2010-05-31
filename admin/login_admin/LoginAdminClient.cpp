@@ -59,10 +59,14 @@ void LoginAdminClient::OnClose()
 	on_disconnect();
 }
 
-void LoginAdminClient::OnConnectFail()
+void LoginAdminClient::OnConnectFail(sphynx::HandshakeError err)
 {
-	WARN("AdminClient") << "-- CONNECT FAIL";
-	on_disconnect();
+	WARN("AdminClient") << "-- CONNECT FAIL: " << GetHandshakeErrorString(err);
+
+	QString str = "Unable to connect to server: ";
+	str += GetHandshakeErrorString(err);
+
+	DisplayMessageBox(str);
 }
 
 void LoginAdminClient::OnConnect(ThreadPoolLocalStorage *tls)

@@ -85,7 +85,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>../../libcatid/include;C:\Qt\4.6.2win64\include;../common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -139,6 +139,7 @@
     <PreBuildEvent>
       <Command>"C:\Qt\4.6.2win64\bin\moc.exe" FormMain.hpp &gt; FormMain.moc
 "C:\Qt\4.6.2win64\bin\moc.exe" FormImage.hpp &gt; FormImage.moc
+"C:\Qt\4.6.2win64\bin\rcc.exe" -name ApplicationResources ui\kennel.qrc -o qrc__kennel.cpp
 </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
@@ -152,11 +153,15 @@
     <ClCompile Include="FormImage.cpp" />
     <ClCompile Include="FormMain.cpp" />
     <ClCompile Include="Kennel.cpp" />
+    <ClCompile Include="qrc__kennel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\libcatid\build\Framework\Framework.vcxproj">
       <Project>{0c763797-b0ee-4ad5-ad7a-4544fc16b7a7}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="myapp.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
