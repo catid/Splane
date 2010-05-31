@@ -362,6 +362,7 @@ void LoginAdminForm::on_lineEditChat_returnPressed()
 
 void LoginAdminForm::on_connect()
 {
+	_player_list.clear();
 }
 
 void LoginAdminForm::on_disconnect()
