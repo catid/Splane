@@ -42,8 +42,7 @@ public:
 
 protected:
 	virtual void OnConnect(ThreadPoolLocalStorage *tls);
-	virtual void OnDestroy();
-	virtual void OnDisconnect();
+	virtual void OnDisconnect(u8 reason);
 	virtual void OnMessage(ThreadPoolLocalStorage *tls, u8 *msg, u32 bytes);
 	virtual void OnTick(ThreadPoolLocalStorage *tls, u32 now);
 };

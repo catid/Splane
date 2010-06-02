@@ -47,12 +47,7 @@ void ZoneConnexion::OnConnect(ThreadPoolLocalStorage *tls)
 
 }
 
-void ZoneConnexion::OnDestroy()
-{
-
-}
-
-void ZoneConnexion::OnDisconnect()
+void ZoneConnexion::OnDisconnect(u8 reason)
 {
 
 }

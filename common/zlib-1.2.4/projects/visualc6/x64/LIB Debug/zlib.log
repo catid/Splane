@@ -1,6 +1,8 @@
-﻿Build started 5/28/2010 10:15:00 PM.
+﻿Build started 6/1/2010 11:20:32 PM.
      1>Project "C:\Users\kuang\workspace\Splane\common\zlib-1.2.4\projects\visualc6\zlib.vcxproj" on node 3 (rebuild target(s)).
-     1>InitializeBuildStatus:
+     1>_PrepareForClean:
+         Deleting file "x64\LIB Debug\zlib.lastbuildstate".
+       InitializeBuildStatus:
          Creating "x64\LIB Debug\zlib.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /Od /D WIN32 /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _DEBUG /D _VC80_UPGRADE=0x0600 /Gm- /EHsc /RTC1 /MDd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Win32_LIB_Debug\\" /Fd".\Win32_LIB_Debug\vc100.pdb" /FR"x64\LIB Debug\\" /Gd /TC /errorReport:prompt ..\..\adler32.c ..\..\compress.c ..\..\crc32.c ..\..\deflate.c ..\..\gzclose.c ..\..\gzlib.c ..\..\gzread.c ..\..\gzwrite.c ..\..\infback.c ..\..\inffast.c ..\..\inflate.c ..\..\inftrees.c ..\..\trees.c ..\..\uncompr.c ..\..\zutil.c
@@ -49,4 +51,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.40
+Time Elapsed 00:00:01.38

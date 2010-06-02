@@ -50,21 +50,13 @@ void LoginDatabaseConnexion::OnConnect(ThreadPoolLocalStorage *tls)
 	WARN("DatabaseConnexion") << _client_addr.IPToString() << ':' << _client_addr.GetPort() << " : Connected.";
 }
 
-void LoginDatabaseConnexion::OnDestroy()
+void LoginDatabaseConnexion::OnDisconnect(u8 reason)
 {
-	WARN("DatabaseConnexion") << _client_addr.IPToString() << ':' << _client_addr.GetPort() << " : Destroyed.";
-}
-
-void LoginDatabaseConnexion::OnDisconnect()
-{
-	WARN("DatabaseConnexion") << _client_addr.IPToString() << ':' << _client_addr.GetPort() << " : Disconnected.";
-	Destroy();
+	WARN("DatabaseConnexion") << _client_addr.IPToString() << ':' << _client_addr.GetPort() << " : Disconnected: reason = " << (int)reason;
 }
 
 void LoginDatabaseConnexion::OnMessage(ThreadPoolLocalStorage *tls, BufferStream msg, u32 bytes)
 {
-	if (bytes <= 0) return;
-
 	u8 opcode = msg[0];
 
 	WARN("DatabaseConnexion") << _client_addr.IPToString() << ':' << _client_addr.GetPort() << " : Got message " << (u32)opcode << HexDumpString(msg, bytes);
@@ -95,9 +87,7 @@ void LoginDatabaseConnexion::OnMessage(ThreadPoolLocalStorage *tls, BufferStream
 
 	WARN("DatabaseConnexion") << _client_addr.IPToString() << ':' << _client_addr.GetPort() << " : Message tampering detected type " << (u32)opcode;
 
-	WriteUnreliable(LDC_TAMPERING_DETECTED);
-	FlushWrite();
-	Destroy();
+	Disconnect(DISCO_TAMPERING, true);
 }
 
 bool LoginDatabaseConnexion::OnLogin(ThreadPoolLocalStorage *tls, u8 *msg, u32 bytes)

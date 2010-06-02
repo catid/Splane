@@ -155,8 +155,6 @@ enum LoginDatabaseServerOpCodes
 
 enum LoginDatabaseClientOpCodes
 {
-	LDC_TAMPERING_DETECTED = 0x3f,		// [S1] -
-
 	LDC_WRONG_KEY = 0xc0,				// [S1] -
 	LDC_CHALLENGE = 0x1c,				// [S1] server_nonce(32)
 
@@ -216,8 +214,6 @@ enum LoginServerOpCodes
 
 enum LoginClientOpCodes
 {
-	LC_TAMPERING_DETECTED = 0x16,		// [S1] -
-
 	// LS_LOGIN_REQUEST responses:
 	LC_LOGIN_BAD_NAME = 0xfc,			// [S1] -
 	LC_LOGIN_BAD_ALIAS = 0x2a,			// [S1] -

@@ -72,7 +72,7 @@ void LoginAdminForm::DisconnectClient()
 {
 	SetConnectStatus(false);
 
-	if (_client) _client->Disconnect();
+	if (_client) _client->Disconnect(sphynx::DISCO_USER_EXIT, true);
 	ThreadRefObject::SafeRelease(_client);
 }
 
@@ -242,12 +242,14 @@ void LoginAdminForm::on_pushButtonConnect_clicked()
 
 	if (sizeof(public_key) != ReadBase64(lineEditPublicKey->text().toLatin1().data(), lineEditPublicKey->text().toLatin1().size(), public_key, sizeof(public_key)))
 	{
+		DisconnectClient();
 		QMessageBox::warning(this, "Invalid Server Public Key", "The length is wrong.  Please enter a valid Server Public Key");
 		return;
 	}
 
 	if (!_client->SetServerKey(&tls, public_key, sizeof(public_key), "Login"))
 	{
+		DisconnectClient();
 		QMessageBox::warning(this, "Invalid Server Public Key", "Please enter a valid Server Public Key");
 		return;
 	}
@@ -269,6 +271,7 @@ void LoginAdminForm::on_pushButtonConnect_clicked()
 			ofstream output(lineEditKeyFilePath->text().toLatin1().data(), ios::binary);
 			if (!output)
 			{
+				DisconnectClient();
 				QMessageBox::warning(this, "Unable to generate key", "Unable to overwrite file");
 				return;
 			}
@@ -278,7 +281,8 @@ void LoginAdminForm::on_pushButtonConnect_clicked()
 
 				if (!tls.Valid())
 				{
-					QMessageBox::warning(this, "Unable to generate key", "TLS failure");
+					DisconnectClient();
+					QMessageBox::warning(this, "Unable to generate key", "Failure in ThreadPool Local Storage");
 					return;
 				}
 				else
@@ -288,6 +292,7 @@ void LoginAdminForm::on_pushButtonConnect_clicked()
 					KeyMaker bob;
 					if (!bob.GenerateKeyPair(tls.math, tls.csprng, public_key, 64, private_key, 32))
 					{
+						DisconnectClient();
 						QMessageBox::warning(this, "Unable to generate key", "KeyMaker failure");
 						return;
 					}
@@ -308,6 +313,7 @@ void LoginAdminForm::on_pushButtonConnect_clicked()
 
 			if (file.fail())
 			{
+				DisconnectClient();
 				QMessageBox::warning(this, "Invalid Key File", "Truncated key file");
 				return;
 			}

@@ -57,6 +57,14 @@ public:
 };
 
 
+enum LDC_DisconnectReasons
+{
+	LDC_DISCO_WRONG_KEY,		// Database Server rejected our access key!
+	LDC_DISCO_BAD_SIGNATURE,	// Database Server rejected our signature!
+	LDC_DISCO_CANNOT_SIGN,		// Couldn't generate signature
+};
+
+
 class LoginDatabaseClient : public sphynx::Client
 {
 	LoginServer *_owner;
@@ -89,7 +97,7 @@ protected:
 	void OnClose();
 	void OnConnectFail(sphynx::HandshakeError err);
 	void OnConnect(ThreadPoolLocalStorage *tls);
-	void OnDisconnect();
+	void OnDisconnect(u8 reason);
 	void OnTimestampDeltaUpdate(u32 rtt, s32 delta);
 	void OnMessage(ThreadPoolLocalStorage *tls, BufferStream msg, u32 bytes);
 	void OnTick(ThreadPoolLocalStorage *tls, u32 now);

@@ -1,8 +1,6 @@
-﻿Build started 4/27/2010 8:26:35 PM.
+﻿Build started 6/2/2010 12:52:30 AM.
      1>Project "C:\Users\kuang\workspace\Splane\common\zlib-1.2.4\projects\visualc6\zlib.vcxproj" on node 3 (rebuild target(s)).
-     1>_PrepareForClean:
-         Deleting file "x64\Template\zlib.lastbuildstate".
-       InitializeBuildStatus:
+     1>InitializeBuildStatus:
          Creating "x64\Template\zlib.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W1 /WX- /Ox /Ob2 /Oi /Oy /GT /GL /Gm- /EHsc /MT /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Template\\" /Fd"x64\Template\vc100.pdb" /Gd /TC /errorReport:prompt ..\..\adler32.c ..\..\compress.c ..\..\crc32.c ..\..\deflate.c ..\..\gzclose.c ..\..\gzlib.c ..\..\gzread.c ..\..\gzwrite.c ..\..\infback.c ..\..\inffast.c ..\..\inflate.c ..\..\inftrees.c ..\..\trees.c ..\..\uncompr.c ..\..\zutil.c
@@ -49,4 +47,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.90
+Time Elapsed 00:00:00.98

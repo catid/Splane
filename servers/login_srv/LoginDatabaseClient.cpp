@@ -188,14 +188,14 @@ void LoginDatabaseClient::ConnectToDatabase(ThreadPoolLocalStorage *tls)
 	if (sizeof(public_key) != ReadBase64(public_key_base64, (int)strlen(public_key_base64), public_key, sizeof(public_key)))
 	{
 		WARN("DatabaseClient") << "Unable to log into Database Server.  Database.PublicKey in settings is not set or invalid";
-		Disconnect();
+		Close();
 		return;
 	}
 
 	if (!SetServerKey(tls, public_key, sizeof(public_key), "LoginDB"))
 	{
 		WARN("DatabaseClient") << "Unable to log into Database Server.  Database.PublicKey in settings is invalid";
-		Disconnect();
+		Close();
 		return;
 	}
 
@@ -223,14 +223,13 @@ void LoginDatabaseClient::OnConnect(ThreadPoolLocalStorage *tls)
 	if (!WriteReliable(STREAM_1, LDS_LOGIN, req, sizeof(req)))
 	{
 		FATAL("DatabaseClient") << "Unable to post login packet to database server";
-		Disconnect();
-		return;
+		Close();
 	}
 }
 
-void LoginDatabaseClient::OnDisconnect()
+void LoginDatabaseClient::OnDisconnect(u8 reason)
 {
-	WARN("DatabaseClient") << "-- DISCONNECTED";
+	WARN("DatabaseClient") << "-- DISCONNECTED: reason = " << (int)reason;
 }
 
 void LoginDatabaseClient::OnTimestampDeltaUpdate(u32 rtt, s32 delta)
@@ -240,16 +239,7 @@ void LoginDatabaseClient::OnTimestampDeltaUpdate(u32 rtt, s32 delta)
 
 void LoginDatabaseClient::OnMessage(ThreadPoolLocalStorage *tls, BufferStream msg, u32 bytes)
 {
-	if (bytes < 1) return;
-
 	u8 opcode = msg[0];
-
-	if (opcode == LDC_TAMPERING_DETECTED)
-	{
-		FATAL("DatabaseClient") << "Database Server closed connexion for packet tampering";
-		Disconnect();
-		return;
-	}
 
 	switch (_state)
 	{
@@ -260,7 +250,7 @@ void LoginDatabaseClient::OnMessage(ThreadPoolLocalStorage *tls, BufferStream ms
 			if (bytes == 1)
 			{
 				FATAL("DatabaseClient") << "Database Server rejected our access key!  Make sure the correct key is set in settings.txt under Database.Key";
-				Disconnect();
+				Disconnect(LDC_DISCO_WRONG_KEY, true);
 				return;
 			}
 			break;
@@ -281,7 +271,7 @@ void LoginDatabaseClient::OnMessage(ThreadPoolLocalStorage *tls, BufferStream ms
 			if (bytes == 1)
 			{
 				FATAL("DatabaseClient") << "Database Server rejected our access key(2)!  Make sure the correct key is set in settings.txt under Database.Key";
-				Disconnect();
+				Disconnect(LDC_DISCO_BAD_SIGNATURE, true);
 				return;
 			}
 			break;
@@ -308,7 +298,7 @@ void LoginDatabaseClient::OnMessage(ThreadPoolLocalStorage *tls, BufferStream ms
 	}
 
 	WARN("DatabaseClient") << "Disconnecting database server for malformed packet " << (u32)opcode;
-	Disconnect();
+	Disconnect(DISCO_TAMPERING, true);
 }
 
 void LoginDatabaseClient::OnTick(ThreadPoolLocalStorage *tls, u32 now)
@@ -329,14 +319,14 @@ bool LoginDatabaseClient::OnChallenge(ThreadPoolLocalStorage *tls, u8 *msg, u32 
 	if (!_owner->_database_access_signer.Sign(tls->math, tls->csprng, signed_message, 32+32, answer+32, 64))
 	{
 		WARN("DatabaseClient") << "Unable to log into Database Server.  Signature creation failed";
-		Disconnect();
+		Disconnect(LDC_DISCO_CANNOT_SIGN, true);
 		return true;
 	}
 
 	if (!WriteReliable(STREAM_1, LDS_ANSWER, answer, sizeof(answer)))
 	{
 		WARN("DatabaseClient") << "Unable to log into Database Server.  Write failure";
-		Disconnect();
+		Disconnect(DISCO_BROKEN_PIPE, true);
 		return true;
 	}
 

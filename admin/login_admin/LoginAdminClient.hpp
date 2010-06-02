@@ -93,14 +93,12 @@ protected:
 	void OnClose();
 	void OnConnectFail(sphynx::HandshakeError err);
 	void OnConnect(ThreadPoolLocalStorage *tls);
-	void OnDisconnect();
+	void OnDisconnect(u8 reason);
 	void OnTimestampDeltaUpdate(u32 rtt, s32 delta);
 	void OnMessage(ThreadPoolLocalStorage *tls, BufferStream msg, u32 bytes);
 	void OnTick(ThreadPoolLocalStorage *tls, u32 now);
 
 protected:
-	void OnTampering(ThreadPoolLocalStorage *tls, BufferStream msg, u32 bytes);
-
 	void OnLoginBadName(ThreadPoolLocalStorage *tls, BufferStream msg, u32 bytes);
 	void OnLoginBadAlias(ThreadPoolLocalStorage *tls, BufferStream msg, u32 bytes);
 

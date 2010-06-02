@@ -49,8 +49,6 @@ LoginAdminClient::LoginAdminClient(LoginAdminForm *form)
 
 	CAT_OBJCLR(_handlers);
 	CAT_OBJCLR(_public_key);
-
-	_handlers[LC_TAMPERING_DETECTED] = fastdelegate::MakeDelegate(this, &LoginAdminClient::OnTampering);
 }
 
 void LoginAdminClient::OnClose()
@@ -189,9 +187,9 @@ void LoginAdminClient::SetLoginHasKey(const char *username, const char *alias, c
 	memcpy(_private_key, private_key, 32);
 }
 
-void LoginAdminClient::OnDisconnect()
+void LoginAdminClient::OnDisconnect(u8 reason)
 {
-	WARN("AdminClient") << "-- DISCONNECTED";
+	WARN("AdminClient") << "-- DISCONNECTED: reason = " << (int) reason;
 	on_disconnect();
 }
 
@@ -202,30 +200,22 @@ void LoginAdminClient::OnTimestampDeltaUpdate(u32 rtt, s32 delta)
 
 void LoginAdminClient::OnMessage(ThreadPoolLocalStorage *tls, BufferStream msg, u32 bytes)
 {
-	if (bytes > 0)
+	u8 opcode = msg[0];
+
+	WARN("AdminClient") << "Got message type " << (u32)opcode;
+
+	if (_handlers[opcode])
 	{
-		u8 opcode = msg[0];
-
-		WARN("AdminClient") << "Got message type " << (u32)opcode;
-
-		if (_handlers[opcode])
-		{
-			_handlers[opcode](tls, msg, bytes);
-		}
-		else
-		{
-			WARN("AdminClient") << "Ignored unexpected message type " << (u32)opcode;
-		}
+		_handlers[opcode](tls, msg, bytes);
+	}
+	else
+	{
+		WARN("AdminClient") << "Ignored unexpected message type " << (u32)opcode;
 	}
 }
 
 void LoginAdminClient::OnTick(ThreadPoolLocalStorage *tls, u32 now)
 {
-}
-
-void LoginAdminClient::OnTampering(ThreadPoolLocalStorage *tls, BufferStream msg, u32 bytes)
-{
-	DisplayMessageBox("Tampering Detected. Normally this would kill the client");
 }
 
 void LoginAdminClient::OnLoginError(ThreadPoolLocalStorage *tls, BufferStream msg, u32 bytes)

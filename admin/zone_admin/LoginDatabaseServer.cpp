@@ -47,12 +47,7 @@ void LoginDatabaseConnexion::OnConnect(ThreadPoolLocalStorage *tls)
 
 }
 
-void LoginDatabaseConnexion::OnDestroy()
-{
-
-}
-
-void LoginDatabaseConnexion::OnDisconnect()
+void LoginDatabaseConnexion::OnDisconnect(u8 reason)
 {
 
 }
